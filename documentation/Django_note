@@ -1,0 +1,32 @@
+Django Notes
+
+— manage.py
+django-admin.py start project books
+python manage.py startapp books
+python manage.py validate
+python manage.py sqlall book
+python manage.py synddb
+
+-manage.py shell
+Publisher.objects.all()
+Publisher.objects.filter(name=‘Good Boy’)
+Publisher.objects.get(name = ‘Apress')
+Publisher.objects.order_by(‘name’)[0]
+Publisher.objects.filter(country = "USA").order_by(“-name”)
+Publisher.objects.filter(id=52).update(name = ‘apress puhlishing’)
+Publisher.objects.filter(name__contains = “press")
+p = Publisher.objects.get(name = ‘my name’)  p.delete()
+Publisher.objects.filter(country = ‘USA’).delete()
+
+-SQL
+Alter Table books Add Column num_pages integer set not null;
+Drop table books_book_author;
+>>> from django.db import connection
+>>> cursor = connection.cursor()
+>>> cursor.execute("""SELECT DISTINCT first_name
+FROM people_person
+WHERE last_name = %s""", ['Lennon’])
+row = cursor.fetchone()
+print row
+['John']
+

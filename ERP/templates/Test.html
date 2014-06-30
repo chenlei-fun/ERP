@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+<style type="text/css">
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-family: "Lucida Grande","DejaVu Sans","Bitstream Vera Sans",Verdana,Arial,sans-serif;
+    color: #333;
+    background: #fff;
+}
+
+.login #container {
+    background: white;
+    border: 1px solid #ccc;
+    width: 28em;
+    min-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+}
+
+#branding h1 {
+    padding: 0 10px;
+    font-size: 18px;
+    margin: 8px 0;
+    font-weight: normal;
+    color: #f4f379;
+}
+
+#header {
+    background: #417690;
+    color: #ffc;
+    overflow: hidden;
+}
+
+.login .form-row {
+    padding: 4px 0;
+    float: left;
+    width: 100%;
+}
+
+.login .form-row #id_username, .login .form-row #id_password {
+    clear: both;
+    padding: 6px;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+
+.login #content-main {
+    width: 100%;
+}
+
+.login .submit-row {
+    clear: both;
+    padding-left: 8em;
+    padding-top:2em;
+}
+
+input, textarea, select, .form-row p {
+    margin: 2px 0;
+    padding: 2px 3px;
+    vertical-align: middle;
+    font-family: "Lucida Grande", Verdana, Arial, sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=url], input[type=number],
+textarea, select, .vTextField {
+    border: 1px solid #ccc;
+}
+
+#content {
+    margin: 20px 20px;
+{#    margin-top: 20px;#}
+}
+
+
+
+</style>
+</head>
+<body class="login">
+<div id="container">
+    <div id="header">
+        <div id="branding">
+        <h1 id="site-name">登录</h1>
+        </div>
+    </div>
+    <div id="content" class="colM">
+        <div id="content-main">
+            <form action="/ERP/statics/admin/" method="post" id="login-form">{% csrf_token %}
+                <div class="form-row">
+                    <label for="id_username" class="required">用户名:</label> <input id="id_username" maxlength="254" name="username" type="text" />
+                </div>
+                <div class="form-row">
+                    <label for="id_password" class="required">密码：</label> <input id="id_password" name="password" type="password" />
+                </div>
+                <div class="submit-row">
+                    <input type="submit" value="登录" />
+                </div>
+            </form>
+        </div>
+        <br class="clear" />
+    </div>
+</div>
+
+</body>
+</html>

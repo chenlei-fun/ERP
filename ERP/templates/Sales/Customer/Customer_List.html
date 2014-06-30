@@ -1,0 +1,72 @@
+{% extends "master.html" %}
+
+{% block content %}
+
+<div id="maincontent">
+    <div id="main">
+        <div class="box_header">
+          <h2><a class="more" href="/sales/customer/new/">新建</a><span>经销商列表</span></h2>
+        </div>
+        <div class="box_con">
+               <table class="table" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>地址</th>
+                        <th>电话</th>
+                        <th>QQ</th>
+                        <th>创建人</th>
+                        <th>创建日期</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                {% for item in object_list %}
+                    <tr>
+                        <td><a href="/sales/customer/{{item.id}}/">{{ item.id }}</a></td>
+                        <td>{{item.Name}}</td>
+                        <td>{{item.Address}}</td>
+                        <td>{{item.Phone}}</td>
+                        <td>{{ item.QQ }}</td>
+                        <td>{{ item.CreateUser }}</td>
+                        <td>{{item.CreateDate|date:"Y-m-d"}}</td>
+                        <td>{{ item.Activity.current_state.state }}</td>
+                        <td><a href="/sales/customer/update/{{item.id}}">修改</a> <a href="/customer/delete/{{item.id}}">删除</a></td>
+                    </tr>
+                {% endfor %}
+                </table>
+                    {% if is_paginated %}
+                    <div class="pagination">
+                        <span class="page-links">
+                            {% if page_obj.has_previous %}
+                                <a href="/sales/customer/list/?page={{ page_obj.previous_page_number }}">上一页</a>
+                            {% endif %}
+                            {% if page_obj.has_next %}
+                                <a href="/sales/customer/list/?page={{ page_obj.next_page_number }}">下一页</a>
+                            {% endif %}
+                            <span class="page-current">
+                                第{{ page_obj.number }}页 ，共{{ page_obj.paginator.num_pages }}页。
+                            </span>
+                        </span>
+                    </div>
+                    {%endif%}
+      </div>
+    </div>
+    <div id="side">
+      <div class= "box_header">
+        <h2><a class="more" href="/customer/new/">设置</a><span>搜索</span></h2>
+      </div>
+      <div class="side_con">
+            <form action="" method="GET">
+              <ul>
+                  <li><strong>经销商名称：</strong><br><input type="text" value=""  name="name"></li>
+                  <li><strong>电话：</strong><br><input type="text" value="" name="phone" ></li>
+                  <li><strong>地址：</strong><br><input type="text" value="" name="address"></li>
+                  <li class="button"><input type="submit" value="查询"></li>
+              </ul>
+            </form>
+      </div>
+    </div>
+
+</div>
+
+{% endblock %}

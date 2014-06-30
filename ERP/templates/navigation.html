@@ -1,0 +1,29 @@
+<div id="nav">
+  	<div id="nav_l"></div>
+    <div id="nav_r"></div>
+    <div class="nav_main">
+      <ul>
+      {% for module in modules %}
+          {% if forloop.first %}
+              <li><a href="#" id="nav_current"  title="{{ module.id }}"><span>{{ module.Name }}</span></a></li>
+              {% else %}
+              <li><a href="#"  title="{{ module.id }}"><span>{{ module.Name }}</span></a></li>
+          {% endif %}
+
+      {% endfor %}
+      </ul>
+    </div>
+      {% for module in modules %}
+          {% if forloop.first %}
+              <div id="sub_nav_{{ module.id }}" class="nav_son">
+          {% else %}
+              <div id="sub_nav_{{ module.id }}" class="nav_son" style="display: none">
+          {% endif %}
+          <ul>
+          {% for submodule in module.SubModules.all %}
+             <li><a href="{{ submodule.Url }}">{{ submodule.Name }}</a></li>
+          {% endfor %}
+          </ul>
+          </div>
+      {% endfor %}
+</div>

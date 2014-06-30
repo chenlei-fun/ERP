@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+{#    <link href="/site_media/css/layout2.css" rel="stylesheet" type="text/css" />#}
+{#    <link href="/site_media/tablecloth/tablecloth1.css" rel="stylesheet" type="text/css" media="screen" />#}
+    <script type="text/javascript" src="/site_media/js/jquery-1.11.0.min.js"></script>
+    <!--<script type="text/javascript" src="/site_media/tablecloth/tablecloth.js"></script>-->
+<script type="text/javascript">
+
+    $(document).ready(function(){
+    $(".nav_main ul li a").click(function(){
+    $(".nav_main ul li a").attr("id","");
+    $(this).attr("id","nav_current");
+    $(".nav_son").hide();
+    //alert($(this).attr('title'));
+    $("#sub_nav_" + $(this).attr('title')).show();
+
+    });
+    });
+</script>
+<style type="text/css">
+
+body { margin:0 auto; font-size:12px; font-family:Verdana; line-height:1.5;}
+ul,dl,dd,h1,h2,h3,h4,h5,h6,form,p { padding:0; margin:0;}
+ul { list-style:none;}
+img { border:0px;}
+a { color:#444; text-decoration:none;}
+a:hover { color:#f00;}
+{#input[type=text]{width: 100%}#}
+
+table, td{
+	font:100% Arial, Helvetica, sans-serif;
+}
+table{width:100%;border-collapse:collapse;margin:0 0;}
+th, td{text-align:left;padding:.5em;border:1px solid #fff;}
+th{background:palevioletred  repeat-x;color:#fff;}
+{#th{background:#328aa4 url(/site_media/images/tr_back.gif) repeat-x;color:#fff;}#}
+td{background:seashell;}
+
+.clearfloat {clear:both;height:0;font-size: 1px;line-height: 0px;}
+
+/*body*/
+#container { width:900px; margin:0 auto;}
+
+/*header*/
+#header { height:60px;}
+#logo { float:left; margin-top:10px; margin-left: 10px}
+#search { float:right; height:24px; margin-top:30px; color:#444;}
+.inp_srh { width:140px; height:17px; padding-left:20px; background:url(/site_media/images/srh_bg.gif) 0 0 no-repeat; border:1px solid #cbcbcb;}
+.btn_srh { width:58px; height:23px; background:url('/site_media/images/btn_srh.gif') 0 0 no-repeat; border:none; cursor:pointer; text-indent:-999em;}
+.welcome {margin-left: 50px}
+#search * { vertical-align:middle;}
+
+#nav { height:66px; background:url(/site_media/images/nav_bg.gif) 0 0 repeat-x; margin-bottom:8px;}
+#nav_l { float:left; height:66px; width:5px; overflow:hidden; background:url(/site_media/images/nav_bg.gif) 0 -66px no-repeat; margin-right:10px;}
+#nav_r { float:right; height:66px; width:5px; overflow:hidden; background:url(/site_media/images/nav_bg.gif) -5px -66px no-repeat;}
+.nav_main { height:36px; overflow:hidden;}
+.nav_main ul li { float:left; font-size:14px; font-weight:bold; margin:5px 5px 0 5px;}
+.nav_main ul li a { float:left; display:block; height:26px; line-height:26px; color:#fff; padding-left:20px;}
+.nav_main ul li a span { float:left; display:block; padding-right:20px;}
+.nav_main ul li a:hover { background:url(/site_media/images/nav_bg.gif) 0 -163px no-repeat; color:#fff;}
+.nav_main ul li a:hover span  { background:url(/site_media/images/nav_bg.gif) right -163px no-repeat; cursor:pointer;}
+.nav_main ul li a#nav_current { height:31px; line-height:31px; background:url(/site_media/images/nav_bg.gif) 0 -132px no-repeat; color:#646464;}
+.nav_main ul li a#nav_current span { height:31px; background:url(/site_media/images/nav_bg.gif) right -132px no-repeat;}
+.nav_son { height:30px;}
+.nav_son ul li { float:left; margin-top:4px;}
+.nav_son ul li a { display:block; width:78px; height:22px; line-height:22px; text-align:center; color:#6e6e6e;}
+.nav_son ul li a:hover { background:url(/site_media/images/nav_bg.gif) 0 -198px no-repeat;}
+
+/*main*/
+#maincontent { overflow:auto; zoom:1;}
+
+#main { float:left; width:702px;border:1px solid #dbdbdb;}
+#side { float:right; width:188px;border:1px solid #dbdbdb; margin-bottom: 8px}
+{##index_box { margin-bottom:8px;}#}
+{#.box { width:704px; float:right; }#}
+.box_header h2 { height:23px; padding:5px 5px 0 5px; font-size:14px; background:url(/site_media/images/box_tit_bg.gif) 0 0; border-bottom:1px solid #dbdbdb; color:#444; overflow:hidden;}
+.box_header span { display:block; height:25px; background:url(/site_media/images/icon.gif) 0 -3px no-repeat; padding-left:20px;}
+.more { float:right; padding-left:14px; font-size:12px; font-weight:normal; color:#db8d3b; background:url(/site_media/images/icon.gif) 0 -46px no-repeat;}
+.more:hover { color:#cb6d0a; background:url(/site_media/images/icon.gif) 0 -96px no-repeat;}
+.box_con { min-height:400px; padding:0px 0px 0px 0px; overflow:hidden;}
+.side_con {padding:20px 30px 20px 20px; overflow:hidden;}
+.side_con ul li { padding-bottom: 5px ;}
+.side_con ul li.button{ text-align: center;}
+
+/*footer*/
+#footer { text-align:center;}
+#footer dl dt { height:28px; line-height:28px; background:#afafaf; color:#fff;}
+#footer dl dt a { font-weight:bold; color:#fff;}
+#footer dl dd { padding:8px 0; color:#666; line-height:2;}
+</style>
+</head>
+<body>
+<div id="container">
+  <div id="header">
+        <div id="logo"><img src="/site_media/images/logo.gif" alt="软件名称" width="181" height="45" /></div>
+        <div id="search">
+          <form id="form1" name="form1" method="post" action="">
+            搜索
+            <input class="inp_srh" type="text" name="textfield" id="textfield" />
+            <input class="btn_srh" type="submit" name="button" id="button" value="搜索" />
+            <label class="welcome">欢迎 {{ user.username }}! <a href="/common/logout">注销</a></label>
+          </form>
+        </div>
+  </div>
+    {% include "navigation.html" %}
+    {% block content %}{%endblock%}
+  <div><input type="button" value="按钮"></div>
+  <div id="footer">
+    <dl>
+    <dt><a href="#">关于我们</a>　||　<a href="#">产品目录</a>　||　<a href="#">联系我们</a>　||　<a href="#">友情链接</a>　||　<a href="#">反馈问题</a>　||　<a href="#">广告合作</a></dt>
+      <dd>Copyright &copy; 2007 - 2010 aa25.cn   All Rights Reserved<br />
+          标准之路  版权所有  京ICP备10007159号</dd>
+    </dl>
+  </div>
+</div>
+</body>
+</html>

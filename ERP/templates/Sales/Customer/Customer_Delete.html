@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>经销商服务平台</title>
+</head>
+<body>
+<h2>删除经销商</h2>
+<div class="box">
+    <form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input type="submit" value="Confirm" />
+</div>
+</form>
+</body>
+</html>

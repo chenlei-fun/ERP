@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="/site_media/css/layout.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h2>显示经销商</h2>
+<div class="box">
+    <table>
+        <tr><th>编号:</th><td>{{ object.id }}</td></tr>
+        <tr><th>名称:</th><td>{{ object.Name }}</td></tr>
+        <tr><th>电话:</th><td>{{ object.Phone }}</td></tr>
+        <tr><th>QQ:</th><td>{{ object.QQ }}</td></tr>
+        <tr><th>创建人:</th><td>{{ object.CreateUser }}</td></tr>
+        <tr><th>创建日期:</th><td>{{ object.CreateDate }}</td></tr>
+        <tr><th>状态:</th><td>{{ object.Activity.current_state }}</td></tr>
+    </table>
+</div>
+<div>
+<form action="" method="GET">
+    {% for item in object.Activity.current_state.state.transitions_from.all %}
+        <input type="button" value="{{ item }}" onclick="window.location.href = '/sales/customer_process?transitionid={{ item.id }}&distributorid={{ object.id }}'" />
+    {% endfor %}
+</form>
+</div>
+</body>
+</html>
